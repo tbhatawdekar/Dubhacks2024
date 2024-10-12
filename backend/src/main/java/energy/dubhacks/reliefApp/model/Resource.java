@@ -9,7 +9,8 @@ public class Resource {
     private Integer quantity;
 
     // Constructors
-    public Resource() {
+    public Resource(String name) {
+        this.name = name;
     }
 
     public Resource(String name, String description, Integer quantity) {
