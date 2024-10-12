@@ -17,11 +17,8 @@ public class SecurityConfig {
             
             // Configure authorization rules
             .authorizeHttpRequests(auth -> auth
-                // Permit all requests to endpoints under /api/**
-                .requestMatchers("/api/**").permitAll()
-                
-                // Require authentication for any other requests
-                .anyRequest().authenticated()
+                // Permit all requests
+                .anyRequest().permitAll()
             )
             
             // Enable HTTP Basic Authentication
