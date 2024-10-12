@@ -1,19 +1,18 @@
 package energy.dubhacks.reliefApp.repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import energy.dubhacks.reliefApp.model.Resource;
+import energy.dubhacks.reliefApp.model.Post;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class ResourceRepository {
 
-    private List<Resource> resources;
+    private List<Post> resources;
 
     public ResourceRepository() {}
 
-    public List<Resource> findAll() {
+    public List<Post> findAll() {
         return resources;
     }
 
