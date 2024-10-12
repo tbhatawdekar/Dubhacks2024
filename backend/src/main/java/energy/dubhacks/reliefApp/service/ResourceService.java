@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
 
 import java.util.List;
 import java.util.Map;
@@ -39,19 +40,22 @@ public class ResourceService {
                 "model", "llama-3.1-sonar-small-128k-online",
                 "messages", new Object[]{
                         Map.of("role", "system", "content", "Be precise and concise."),
-                        Map.of("role", "user", "content", "How many stars are there in our galaxy?")
+                        Map.of("role", "user", "content", "Please read and parse this post about hurricane" +
+                                "relief The post is the last sentence in this message. Decide whether or not it fits into these tags: Food, Shelter, Immediate attention. " +
+                                "Only give a short summary of what they said, and give what tags it satisfies out of the 3 tags" +
+                                "HELP, MY HOUSE IS ON FIRE BECAUSE OF THE HURRICANE")
                 }
         );
-        String apiResponse = String.valueOf(webClient.post()
+        Mono<String> apiResponse = (webClient.post()
                 .uri("https://api.perplexity.ai/chat/completions")
-                .header("Authorization", "Bearer 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")
+                .header("Authorization", "")
                 .header("Content-Type", "application/json")
                 .bodyValue(requestBody)
                 .retrieve()
                 .bodyToMono(String.class));
-
-        System.out.println(apiResponse);
-        return new Resource(apiResponse);
+        String re = apiResponse.block();
+        System.out.println(re);
+        return new Resource(re);
     }
 
     // Update an existing resource
