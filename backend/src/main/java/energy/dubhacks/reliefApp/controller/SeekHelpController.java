@@ -1,6 +1,5 @@
 package energy.dubhacks.reliefApp.controller;
 
-import energy.dubhacks.reliefApp.dto.ResourceDTO;
 import energy.dubhacks.reliefApp.dto.SeekPostDTO;
 import energy.dubhacks.reliefApp.model.Resource;
 import energy.dubhacks.reliefApp.service.ResourceService;
