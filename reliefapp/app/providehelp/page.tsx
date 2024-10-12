@@ -26,8 +26,8 @@ export default function NeedsDashboard() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-100 to-sky-50 flex flex-col items-center justify-between p-4 sm:p-6">
       <header className="w-full text-center mb-8">
-        <h1 className="text-4xl sm:text-5xl font-bold text-sky-800 mb-2">Needs Dashboard</h1>
-        <p className="text-xl text-sky-600">Select the type of assistance you need</p>
+        <h1 className="text-4xl sm:text-5xl font-bold text-sky-800 mb-2">Provide Relief</h1>
+        <p className="text-xl text-sky-600">Select the type of assistance you can provide</p>
       </header>
       
       <main className="flex-grow flex flex-col items-center justify-center w-full max-w-4xl">

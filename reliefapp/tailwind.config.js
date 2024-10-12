@@ -6,7 +6,8 @@ module.exports = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-	],
+  ],
+  prefix: "",
   theme: {
     container: {
       center: true,
@@ -50,17 +51,6 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sky: {
-          50: 'hsl(204, 100%, 97%)',
-          100: 'hsl(204, 94%, 94%)',
-          600: 'hsl(200, 98%, 39%)',
-          700: 'hsl(201, 96%, 32%)',
-          800: 'hsl(201, 90%, 27%)',
-        },
-        emerald: {
-          600: 'hsl(161, 94%, 30%)',
-          700: 'hsl(161, 94%, 24%)',
-        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -69,12 +59,12 @@ module.exports = {
       },
       keyframes: {
         "accordion-down": {
-          from: { height: 0 },
+          from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: 0 },
+          to: { height: "0" },
         },
       },
       animation: {
