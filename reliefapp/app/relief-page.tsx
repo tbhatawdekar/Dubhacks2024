@@ -19,10 +19,10 @@ export default function ReliefPage() {
         
         <div className="space-y-4 w-full">
           <Button asChild className="w-full" variant="default">
-            <Link href="/seek-help">Seek Help</Link>
+            <Link href="/seekhelp">Seek Help</Link>
           </Button>
           <Button asChild className="w-full bg-emerald-600 hover:bg-emerald-700 text-white">
-            <Link href="/provide-help">Provide Help</Link>
+            <Link href="/providehelp">Provide Help</Link>
           </Button>
         </div>
       </main>
