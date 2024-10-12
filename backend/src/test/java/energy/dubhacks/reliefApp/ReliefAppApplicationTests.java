@@ -1,10 +1,10 @@
-package com.example.demo;
+package energy.dubhacks.reliefApp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DemoApplicationTests {
+class ReliefAppApplicationTests {
 
 	@Test
 	void contextLoads() {
