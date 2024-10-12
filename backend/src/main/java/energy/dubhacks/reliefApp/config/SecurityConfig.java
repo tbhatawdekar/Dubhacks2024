@@ -1,24 +1,32 @@
 package energy.dubhacks.reliefApp.config;
 
-import java.beans.Customizer;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.context.annotation.Configuration;
 
+
 @Configuration
 public class SecurityConfig {
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(Customizer.withDefaults()).disable() // Disable CSRF for simplicity; enable in production
-            .authorizeHTTPRequests()
-                .antMatchers("/api/**").permitAll() // Permit all API endpoints; adjust as needed
+            // Disable CSRF for simplicity; enable it in production environments
+            .csrf(csrf -> csrf.disable())
+            
+            // Configure authorization rules
+            .authorizeHttpRequests(auth -> auth
+                // Permit all requests to endpoints under /api/**
+                .requestMatchers("/api/**").permitAll()
+                
+                // Require authentication for any other requests
                 .anyRequest().authenticated()
-            .and()
-            .httpBasic(); // Use basic authentication; consider more secure methods
+            )
+            
+            // Enable HTTP Basic Authentication
+            .httpBasic(org.springframework.security.config.Customizer.withDefaults());
+
         return http.build();
     }
 }
