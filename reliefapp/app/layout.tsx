@@ -1,21 +1,19 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import { Quicksand } from 'next/font/google'
-const quicksand = Quicksand({ subsets: ['latin'] })
+import './globals.css'
+import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "Relief App",
-  description: "Relief app to provide relief.",
-};
+  title: 'Hurricane Relief',
+  description: 'Connecting hearts, rebuilding lives',
+}
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="en">
-      <body className={quicksand.className}>{children}</body>
+      <body>{children}</body>
     </html>
-  );
+  )
 }
