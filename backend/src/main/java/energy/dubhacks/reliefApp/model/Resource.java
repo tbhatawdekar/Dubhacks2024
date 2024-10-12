@@ -1,13 +1,7 @@
 package energy.dubhacks.reliefApp.model;
 
-import javax.persistence.*;
 
-@Entity
-@Table(name = "resources")
 public class Resource {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;

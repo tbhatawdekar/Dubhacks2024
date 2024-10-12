@@ -1,5 +1,6 @@
 package energy.dubhacks.reliefApp.model;
 
+
 public class User {
 
     public void setUsername(Object username) {
