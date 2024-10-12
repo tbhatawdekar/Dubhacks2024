@@ -1,6 +1,6 @@
 package energy.dubhacks.reliefApp.service;
 
-import energy.dubhacks.reliefApp.dto.ResourceDTO;
+import energy.dubhacks.reliefApp.dto.SeekPostDTO;
 import energy.dubhacks.reliefApp.model.Resource;
 import energy.dubhacks.reliefApp.repository.ResourceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,12 +32,12 @@ public class ResourceService {
     }
 
     // Create a new resource
-    public Resource createResource(ResourceDTO resourceDTO) {
+    public Resource createResource(SeekPostDTO seekPostDTO) {
         return null;
     }
 
     // Update an existing resource
-    public Resource updateResource(Long id, ResourceDTO resourceDTO) {
+    public Resource updateResource(Long id, SeekPostDTO seekPostDTO) {
         return null;
     }
 
