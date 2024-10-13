@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 @RestController
 @RequestMapping("/seek")
 public class SeekHelpController {
@@ -16,7 +19,7 @@ public class SeekHelpController {
 
     // Create a new post
     @PostMapping
-    public ResponseEntity<Post> createResource(@RequestBody SeekPostDTO seekPostDTO) {
+    public ResponseEntity<Post> createResource(@RequestBody SeekPostDTO seekPostDTO) throws IOException {
         Post createdResource = seekService.createResource(seekPostDTO);
         return ResponseEntity.ok(createdResource);
     }
