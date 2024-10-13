@@ -1,3 +1,4 @@
+"use client"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { 
@@ -11,7 +12,7 @@ import {
   Stethoscope 
 } from "lucide-react"
 
-export default function NeedsDashboard() {
+export default function NeedsDashboard() {    
   const needs = [
     { name: "Food", icon: Utensils, route: "food", color: "bg-amber-500 hover:bg-amber-600" },
     { name: "Shelter", icon: Home, route: "shelter", color: "bg-blue-500 hover:bg-blue-600" },
