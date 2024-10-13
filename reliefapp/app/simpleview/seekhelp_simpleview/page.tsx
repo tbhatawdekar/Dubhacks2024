@@ -1,11 +1,21 @@
+"use client";
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { AlertTriangle, Mic, HelpCircle } from "lucide-react"
 import Link from "next/link"
+import React, {useState} from "react";
+import InputPost from "@/app/InputPost";
 
 export default function SeekHelp() {
+  const [textInput, setTextInput] = useState('');
+  const { handleSubmit } = InputPost({ textInput });
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setTextInput(event.target.value);
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-100 to-sky-50 flex flex-col items-center p-8 sm:p-12">
       <header className="w-full text-center mb-12">
@@ -19,7 +29,7 @@ export default function SeekHelp() {
           <span className="text-2xl font-semibold">Emergency Request Form</span>
         </div>
 
-        <form className="space-y-6">
+        <form className="space-y-6" onSubmit = {handleSubmit}>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <Input placeholder="Your Name" className="text-xl py-4" required />
             <Input placeholder="Location" className="text-xl py-4" required />
@@ -32,6 +42,8 @@ export default function SeekHelp() {
               placeholder="I need help with __. I am experiencing these medical issues: ___. I need help in ___ hours." 
               className="min-h-[200px] text-xl py-4 pr-12"
               required
+              value={textInput}
+              onChange={handleInputChange}
             />
             <Mic className="absolute right-4 top-4 w-8 h-8 text-sky-600 cursor-pointer" />
           </div>

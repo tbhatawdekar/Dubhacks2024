@@ -1,21 +1,19 @@
+"use client";
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { AlertTriangle, Mic, HelpCircle } from "lucide-react"
 import Link from "next/link"
-import { useState } from "react"
+import React, { useState } from "react"
+import InputPost from "@/app/InputPost";
 
 export default function SeekHelp() {
-
   const [textInput, setTextInput] = useState('');
+  const { handleSubmit } = InputPost({ textInput });
 
   const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setTextInput(event.target.value);
-  }
-
-  const doSubmitPost = (evt: React.ChangeEvent<HTMLButtonElement>) => {
-    
   }
 
   return (
@@ -31,7 +29,7 @@ export default function SeekHelp() {
           <span className="font-semibold">Emergency Request Form</span>
         </div>
 
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit = {handleSubmit}>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Input placeholder="Your Name" required />
             <Input placeholder="Location" required />
@@ -58,7 +56,7 @@ export default function SeekHelp() {
           </div>
 
           <div className="flex justify-between items-center">
-            <Button type="submit" className="bg-red-600 hover:bg-red-700 text-white" onClick={evt => doSubmitPost(evt)}>
+            <Button type="submit" className="bg-red-600 hover:bg-red-700 text-white">
               Submit Request
             </Button>
             <Button variant="outline" className="flex items-center space-x-2">
