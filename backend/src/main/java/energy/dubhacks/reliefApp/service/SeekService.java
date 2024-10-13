@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import energy.dubhacks.reliefApp.dto.SeekPostDTO;
 import energy.dubhacks.reliefApp.model.Post;
-import energy.dubhacks.reliefApp.model.Resource;
 import energy.dubhacks.reliefApp.repository.ResourceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -85,6 +84,7 @@ public class SeekService {
                 node.get("Urgency").asBoolean());
 
         resourceRepository.addPost(newPost);
+        System.out.println(newPost);
         return newPost;
     }
 }
