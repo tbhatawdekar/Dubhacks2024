@@ -6,7 +6,7 @@ export default function ReliefPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-100 to-sky-50 flex flex-col items-center justify-between p-4 sm:p-6">
       <header className="w-full text-center mb-8">
-        <h1 className="text-5xl sm:text-6xl font-bold text-sky-800 mb-2">Relief</h1>
+        <h1 className="text-5xl sm:text-6xl font-bold text-sky-800 mb-2">LocalLifeline</h1>
         <p className="text-xl text-sky-600">Connecting hearts, rebuilding lives</p>
       </header>
       
