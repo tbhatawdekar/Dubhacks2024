@@ -4,6 +4,7 @@ import energy.dubhacks.reliefApp.dto.SeekPostDTO;
 import energy.dubhacks.reliefApp.model.Post;
 import energy.dubhacks.reliefApp.repository.ResourceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -12,6 +13,7 @@ import reactor.core.publisher.Mono;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.Map;
 
 @Service
@@ -20,9 +22,12 @@ public class SeekService {
     private final ResourceRepository resourceRepository;
     private final WebClient webClient;
 
+    @Value("${api.auth}")
+    private String apiAuth;
+
     @Autowired
     public SeekService(ResourceRepository resourceRepository, WebClient.Builder webClientBuilder) {
-        this.resourceRepository = new ResourceRepository();
+        this.resourceRepository = new ResourceRepository(new ArrayList<>());
         this.webClient = webClientBuilder.build();
     }
 
@@ -39,13 +44,15 @@ public class SeekService {
         );
         Mono<String> apiResponse = (webClient.post()
                 .uri("https://api.perplexity.ai/chat/completions")
-                .header("Authorization", "")
+                .header("Authorization", apiAuth)
                 .header("Content-Type", "application/json")
                 .bodyValue(requestBody)
                 .retrieve()
                 .bodyToMono(String.class));
         String re = apiResponse.block();
         //TODO: parse JSON and populate summary, categoriesToTags, Urgency
-        return new Post(re, seekPostDTO.getMessage(), null, false   );
+        Post newPost = new Post(re, seekPostDTO.getMessage(), null, false);
+        resourceRepository.addPost(newPost);
+        return newPost;
     }
 }
