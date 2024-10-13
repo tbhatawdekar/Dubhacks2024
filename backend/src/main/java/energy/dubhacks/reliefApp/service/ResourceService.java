@@ -5,11 +5,9 @@ import energy.dubhacks.reliefApp.model.Resource;
 import energy.dubhacks.reliefApp.repository.ResourceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
-import java.util.List;
 import java.util.Map;
 
 @Component
@@ -24,10 +22,10 @@ public class ResourceService {
         this.webClient = webClientBuilder.build();
     }
 
-    // Retrieve all resources
-    public List<Resource> getAllResources() {
-        return resourceRepository.findAll();
-    }
+//    // Retrieve all resources
+//    public List<Resource> getAllResources() {
+//        return resourceRepository.findAll();
+//    }
 
     // Retrieve a resource by ID
     public Resource getResourceById(Long id) {
