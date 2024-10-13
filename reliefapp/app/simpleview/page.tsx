@@ -6,7 +6,7 @@ export default function SimpleView() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-100 to-sky-50 flex flex-col items-center justify-between p-12 sm:p-16">
       <header className="w-full text-center mb-16">
-        <h1 className="text-8xl sm:text-9xl font-bold text-sky-800 mb-6">Relief</h1>
+        <h1 className="text-8xl sm:text-9xl font-bold text-sky-800 mb-6">LocalLifeline</h1>
       </header>
       <main className="flex-grow flex flex-col items-center justify-center w-full max-w-2xl">
         <div className="space-y-8 w-full">
