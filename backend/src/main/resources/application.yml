@@ -1,6 +1,6 @@
 spring:
   application:
-      name: reliefApp
-  
+    name: reliefApp
+
 api:
   auth: "Bearer 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"
