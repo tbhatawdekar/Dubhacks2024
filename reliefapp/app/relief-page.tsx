@@ -29,7 +29,7 @@ export default function ReliefPage() {
       
       <footer className="w-full flex justify-end mt-6">
         <Button asChild variant="outline">
-          <Link href="/simple-view">Simple View</Link>
+          <Link href="/simpleview">Simple View</Link>
         </Button>
       </footer>
     </div>

@@ -59,9 +59,6 @@ export default function SeekHelp() {
         <Button asChild variant="outline">
           <Link href="/">Back to Home</Link>
         </Button>
-        <Button asChild variant="outline">
-          <Link href="/simple-view">Simple View</Link>
-        </Button>
       </footer>
     </div>
   )
