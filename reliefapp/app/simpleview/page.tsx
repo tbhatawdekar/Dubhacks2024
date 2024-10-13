@@ -10,7 +10,6 @@ export default function SimpleView() {
       </header>
       <main className="flex-grow flex flex-col items-center justify-center w-full max-w-2xl">
         <div className="space-y-8 w-full">
-          {/* Make the buttons larger with bigger padding, text size, and larger buttons overall */}
           <Button asChild className="w-full py-16 text-5xl" variant="default">
             <Link href="http://localhost:3000/simpleview/seekhelp_simpleview">Seek Help</Link>
           </Button>
