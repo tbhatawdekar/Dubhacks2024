@@ -1,5 +1,7 @@
 # Dubhacks2024
-DubHacks 2024 - ai-powered relief app.
+Local Lifeline - DubHacks 2024 - an ai-powered disaster relief app.
+
+# v1.0
 **Backend:**
 - Accepts a POST request with a string "message" body, parsing the message using Perplexity.ai and saving it as a Post object (contents: { summary:string, map: <categories:string, tags:string>, urgency:boolean}).
 - Accepts a GET request that returns all of the posts made by "seekers" of help.
