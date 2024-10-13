@@ -17,6 +17,7 @@ import reactor.core.publisher.Mono;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,7 +33,7 @@ public class SeekService {
 
     @Autowired
     public SeekService(ResourceRepository resourceRepository, WebClient.Builder webClientBuilder) {
-        this.resourceRepository = new ResourceRepository();
+        this.resourceRepository = new ResourceRepository(new ArrayList<>());
         this.webClient = webClientBuilder.build();
     }
 
@@ -83,6 +84,7 @@ public class SeekService {
                 categoriesToTags,
                 node.get("Urgency").asBoolean());
 
+        resourceRepository.addPost(newPost);
         return newPost;
     }
 }
