@@ -1,2 +1,2 @@
 # Dubhacks2024
-Dubhacks 2024
+DubHacks 2024 - ai-powered relief app.
