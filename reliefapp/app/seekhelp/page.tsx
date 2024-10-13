@@ -4,8 +4,20 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { AlertTriangle, Mic, HelpCircle } from "lucide-react"
 import Link from "next/link"
+import { useState } from "react"
 
 export default function SeekHelp() {
+
+  const [textInput, setTextInput] = useState('');
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setTextInput(event.target.value);
+  }
+
+  const doSubmitPost = (evt: React.ChangeEvent<HTMLButtonElement>) => {
+    
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-100 to-sky-50 flex flex-col items-center p-4 sm:p-6">
       <header className="w-full text-center mb-8">
@@ -32,6 +44,8 @@ export default function SeekHelp() {
               placeholder="I need help with __. I am experiencing these medical issues: ___. I need help in ___ hours." 
               className="min-h-[150px] pr-10"
               required
+              value={textInput}
+              onChange={handleInputChange}
             />
             <Mic className="absolute right-3 top-3 w-5 h-5 text-sky-600 cursor-pointer" />
           </div>
@@ -44,7 +58,7 @@ export default function SeekHelp() {
           </div>
 
           <div className="flex justify-between items-center">
-            <Button type="submit" className="bg-red-600 hover:bg-red-700 text-white">
+            <Button type="submit" className="bg-red-600 hover:bg-red-700 text-white" onClick={evt => doSubmitPost(evt)}>
               Submit Request
             </Button>
             <Button variant="outline" className="flex items-center space-x-2">
