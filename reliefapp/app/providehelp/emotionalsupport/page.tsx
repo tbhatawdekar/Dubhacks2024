@@ -137,7 +137,7 @@ export default function EmotionalSupport() {
 
       <footer className="w-full flex justify-start mt-6">
         <Button asChild variant="outline">
-          <Link href="/">Back to Home</Link>
+          <Link href="/providehelp">Back to Provide Help</Link>
         </Button>
       </footer>
     </div>
