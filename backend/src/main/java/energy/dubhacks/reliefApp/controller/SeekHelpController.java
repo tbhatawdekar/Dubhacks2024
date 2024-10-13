@@ -20,7 +20,7 @@ public class SeekHelpController {
     // Create a new post
     @PostMapping
     public ResponseEntity<Post> createResource(@RequestBody SeekPostDTO seekPostDTO) throws IOException {
-        Post createdResource = seekService.createResource(seekPostDTO);
+        Post createdResource = seekService.createPost(seekPostDTO);
         return ResponseEntity.ok(createdResource);
     }
 
